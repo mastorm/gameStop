@@ -22,8 +22,13 @@ public class Main {
         }
 
         ShoppingCart myCart = new ShoppingCart();
-        myCart.addToCart(articles[0], 4);
-        myCart.addToCart(articles[1], 3);
+        try {
+            myCart.addToCart(articles[0], 4);
+            myCart.addToCart(articles[1], 3);
+        } catch (PriceToLowException exception) {
+            System.out.println("Oopsie Woopsie, this shouldnt happen!");
+        }
+
         System.out.println(myCart.getTotalPrice());
 
     }

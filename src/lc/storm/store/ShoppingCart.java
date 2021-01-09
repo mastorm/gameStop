@@ -7,7 +7,10 @@ public final class ShoppingCart {
 
     private List<ShoppingCartItem> cart = new LinkedList<>();
 
-    public void addToCart(Article article, int amount) {
+    public void addToCart(Article article, int amount) throws PriceToLowException {
+        if(article.getPrice() <= 0f) {
+            throw new PriceToLowException();
+        }
         cart.add(new ShoppingCartItem(article, amount));
     }
 
