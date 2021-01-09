@@ -2,12 +2,11 @@ package lc.storm.store;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Manages article stock and offers apis to check availability
  */
-public class Warehouse implements ArticleStorage {
+public final class Warehouse implements ArticleStorage {
     private Map<String, Integer> articleStorage = new HashMap<>();
 
     /**

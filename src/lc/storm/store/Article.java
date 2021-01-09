@@ -6,8 +6,7 @@ public class Article {
     private String name;
     private String description;
 
-    public Article(String productNumber, float price, String name, String description) {
-        this.price = price;
+    public Article(String productNumber, String name, String description) {
         this.productNumber = productNumber;
         this.name = name;
         this.description = description;
