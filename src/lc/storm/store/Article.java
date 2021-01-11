@@ -14,12 +14,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" +
-                "price=" + price +
-                ", productNumber='" + productNumber + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return String.format("%s: %s - JUST %s$", getName(), getDescription(), getProductNumber());
     }
 
     public float getPrice() {

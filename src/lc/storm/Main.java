@@ -1,35 +1,17 @@
 package lc.storm;
 
-import lc.storm.store.Article;
-import lc.storm.store.PriceToLowException;
-import lc.storm.store.ShoppingCart;
-import lc.storm.store.Warehouse;
+import lc.storm.store.*;
+
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
-        Article[] articles = {
-                new Article("1111", "Assassins Creed: Valhalla", "Experience the ancient viking kingdoms!"),
-                new Article("1111", "Fall Guys", "King of the hill without casualties")
-        };
-
-        try{
-            articles[0].setPrice(3f);
-            articles[1].setPrice(5f);
-        } catch (PriceToLowException exception) {
-            System.out.println("Price cant be unter an euro.");
+        Storefront myShop = new Storefront();
+        List<Article> articles = myShop.getAvailableArticles();
+        System.out.println("Welcome to JAMA Store, these are the games we offer!");
+        for(Article article : articles) {
+            System.out.println(article);
         }
-
-        ShoppingCart myCart = new ShoppingCart();
-        try {
-            myCart.addToCart(articles[0], 4);
-            myCart.addToCart(articles[1], 3);
-        } catch (PriceToLowException exception) {
-            System.out.println("Oopsie Woopsie, this shouldnt happen!");
-        }
-
-        System.out.println(myCart.getTotalPrice());
-
     }
 }
